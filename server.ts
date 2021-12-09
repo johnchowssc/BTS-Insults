@@ -1,5 +1,7 @@
 import { Application, Context } from "https://deno.land/x/abc@v1.3.3/mod.ts";
 
+const port = parseInt(Deno.env.get('PORT') ?? '8080')
+
 const app = new Application();
 
 //Static Files
@@ -12,4 +14,4 @@ app
   .get("/", async (ctx: Context) => {
     await ctx.file('/public/index.html');
   })
-  .start({ port: 8080 });
+  .start({ port: port });
